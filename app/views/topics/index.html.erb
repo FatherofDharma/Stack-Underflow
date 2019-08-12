@@ -1,0 +1,11 @@
+<div class="topic-header">
+  <h2>All Topics</h2>
+  <%= link_to "Add Topic", new_topic_path, :class=>"btn btn-primary btn-sm" %>
+</div>
+
+<% if @topics.any? %>
+  <div class="container">
+    <% @topics.each do %>
+    <% end %>
+  </div>
+<% end %>

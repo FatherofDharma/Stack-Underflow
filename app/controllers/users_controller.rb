@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def secret
   end
-  
+
   def new
     @user = User.new
   end
@@ -11,11 +11,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "You've successfully signed up!"
+      flash[:notice] = {:content => "You've signed up!", :class => "alert alert-success"}
       session[:user_id] = @user.id
       redirect_to "/"
     else
-      flash[:alert] = "There was a problem signing up."
+      flash[:alert] = {:content => "Whoops! There was an error", :class => "alert alert-danger"}
       redirect_to '/signup'
     end
   end

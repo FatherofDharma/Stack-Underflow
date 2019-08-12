@@ -1,0 +1,13 @@
+<div class="topic-header">
+  <h2>Add Topic</h2>
+  <%= link_to "Return To All Topics", topics_path, :class=>"btn btn-primary btn-sm" %>
+</div>
+
+<div class="form-group">
+  <%= form_for(@topic) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.submit %>
+  <% end %>
+</div>

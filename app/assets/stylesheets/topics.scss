@@ -1,0 +1,15 @@
+// Place all the styles related to the topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.topic-header h2{
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.topic-header a{
+  float: right;
+  margin-top: 0.1rem;
+  // vertical-align: top;
+}
