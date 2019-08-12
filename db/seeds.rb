@@ -10,17 +10,17 @@ User.destroy_all
 Topic.destroy_all
 Post.destroy_all
 
-# 5.times do
-#   user_name = Faker::Artist.name
-#   user = User.new(:user_name => user_name)
-#   5.times do
-#     topic_title = Faker::Cosmere.aon
-#     new_topic = user.topics.new(:title => topic_title)
-#     new_topic.save
-#     5.times do
-#       post_body = Faker::GreekPhilosophers.quote
-#       new_post = new_topic.posts.new(:content_body => post_body)
-#       new_post.save
-#     end
-#   end
-# end
+5.times do
+  user_name = Faker::Artist.name
+  user = User.new(:user_name => user_name)
+  5.times do
+    topic_title = Faker::Cosmere.aon
+    new_topic = user.topics.new(:title => topic_title)
+    new_topic.save
+    5.times do
+      post_body = Faker::GreekPhilosophers.quote
+      new_post = new_topic.posts.new(:content_body => post_body)
+      new_post.save
+    end
+  end
+end

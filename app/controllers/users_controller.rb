@@ -20,6 +20,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if @user == current_user
+      @user.destroy
+      redirect_to "/signout"
+    else
+      @user.destroy
+      redirect_to "/"
+    end
+  end
+
   private
     def user_params
       params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
