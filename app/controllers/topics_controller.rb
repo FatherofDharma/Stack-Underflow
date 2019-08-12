@@ -30,6 +30,17 @@ class TopicsController < ApplicationController
   end
 
   def show
+    id = params[:id]
+    @topic = Topic.find_by_id(id)
+    @posts = @topic.posts
+    @users = []
+    @posts.each do |p|
+      user = User.all.where(id: p.user_id).first
+      if @users.include?(user) == false
+        @users.push(user)
+      end
+
+    end
     render :topic
   end
 

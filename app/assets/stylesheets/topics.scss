@@ -13,3 +13,9 @@
   margin-top: 0.1rem;
   // vertical-align: top;
 }
+
+textarea {
+  min-height: 100px;
+  width: 100%;
+  resize: none;
+}

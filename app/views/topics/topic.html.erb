@@ -1,1 +1,28 @@
-<h1>We're looking at a topic!</h1>
+<div class="">
+  <h2><%= @topic.title %></h2>
+  <% if @posts.any? %>
+    <div class="post-wrapper">
+
+      <% @posts.each do |p| %>
+        <div class="card">
+          <div class="card-body">
+            <%# this looks really crazy but it just goes through that users array and finds the username for the corresponding post ID %>
+            <h4 class="card-title"><%= @users.select{|user| user.id == p.user_id}.first.user_name %></h4>
+            <p><%= p.content_body %></p>
+          </div>
+        </div>
+      <% end %>
+      <div class="card">
+        <div class="card-body">
+          <%= form_tag(topic_posts_path(@topic)) do %>
+          <%= text_field_tag :user_id, session[:user_id], :style => "display:none;" %>
+          <%# label_tag "Add Reply" %>
+          <%= text_area_tag :content_body %>
+          <%= submit_tag "Add Reply", :class=>"btn btn-primary btn-sm" %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
