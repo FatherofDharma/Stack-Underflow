@@ -12,17 +12,17 @@
           </div>
         </div>
       <% end %>
-      <div class="card">
-        <div class="card-body">
-          <%= form_tag(topic_posts_path(@topic)) do %>
-          <%= text_field_tag :user_id, session[:user_id], :style => "display:none;" %>
-          <%# label_tag "Add Reply" %>
-          <%= text_area_tag :content_body %>
-          <%= submit_tag "Add Reply", :class=>"btn btn-primary btn-sm" %>
-          <% end %>
-
-        </div>
-      </div>
     </div>
   <% end %>
+  <div class="card">
+    <div class="card-body">
+      <%= form_tag(topic_posts_path(@topic)) do %>
+      <%= text_field_tag :user_id, session[:user_id], :style => "display:none;" %>
+      <%# label_tag "Add Reply" %>
+      <%= text_area_tag :content_body %>
+      <%= submit_tag "Add Reply", :class=>"btn btn-primary btn-sm" %>
+      <% end %>
+
+    </div>
+  </div>
 </div>

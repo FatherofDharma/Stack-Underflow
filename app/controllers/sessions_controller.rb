@@ -4,6 +4,14 @@ class SessionsController < ApplicationController
   def secret
   end
 
+  def new
+    # this is weird and we found out that by default rails will just go to "new" in the views folder
+    # this lets us redirect a user if they are already logged in
+    if session[:user_id]
+      redirect_to topics_path
+    end
+  end
+
   def create
     @user = User.authenticate(params[:email], params[:password])
     if @user

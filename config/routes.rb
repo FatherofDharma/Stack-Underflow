@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
 
+  get '/spaghetti' => 'sessions#spaghetti'
+
   resources :topics do
     resources :posts
   end

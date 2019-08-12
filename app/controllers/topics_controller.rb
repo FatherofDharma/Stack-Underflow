@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :authorize, only: [:new]
+  before_action :authorize, only: [:new, :show, :destroy]
 
   def index
     @topics = Topic.all
@@ -42,6 +42,15 @@ class TopicsController < ApplicationController
 
     end
     render :topic
+  end
+
+  def destroy
+    id = params[:id]
+    @topic = Topic.find_by_id(id)
+    @posts = @topic.posts
+    @posts.destroy_all
+    @topic.destroy
+    redirect_to topics_path
   end
 
 end
